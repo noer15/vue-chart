@@ -87,7 +87,7 @@ export default {
           labels: response.data.data.map((item) => item.pengguna),
           datasets: [
             {
-              label: "Total Transaksi",
+              label: "Total Polling Kandidat",
               borderWidth: 1,
               borderColor: "rgba(50, 115, 220, 0.5)",
               backgroundColor: "rgba(50, 115, 220, 0.2)",
