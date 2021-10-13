@@ -4,7 +4,7 @@ export default {
   extends: Bar,
   props: {
     chartData: {
-      type: [Object, Array],
+      type: [Array, Object],
       default: null,
     },
     options: {

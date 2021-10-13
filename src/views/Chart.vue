@@ -96,7 +96,7 @@ export default {
             },
           ],
         };
-        this.load = true;
+        this.loaded = true;
       } catch (error) {
         console.log(error);
       }
