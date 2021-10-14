@@ -2,6 +2,11 @@
   <div>
     <Navbar />
     <div class="lg:max-w-6xl mx-auto lg:mt-20 mt-10">
+      <div
+        class="bg-green-500 lg:text-lg text-sm lg:mx-0 mx-2 text-white p-3 rounded-md mb-4 border-l-4 border-green-800"
+      >
+        Batas Waktu Polling 20 oktober 2021 - 23.59
+      </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
         <div class="overflow-hidden sm:rounded-md border shadow rounded-md p-5">
           <div class="px-4 py-5 bg-white sm:p-6">

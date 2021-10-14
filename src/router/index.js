@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Polling from "../views/Polling.vue";
 import Chart from "../views/Chart.vue";
+import Hasil from "../views/Hasil.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/polling",
     name: "polling",
     component: Chart,
+  },
+  {
+    path: "/data",
+    name: "Hasil",
+    component: Hasil,
   },
 ];
 
