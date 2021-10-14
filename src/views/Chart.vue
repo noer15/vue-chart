@@ -89,8 +89,16 @@ export default {
             {
               label: "Total Polling Kandidat",
               borderWidth: 1,
-              borderColor: "rgba(50, 115, 220, 0.5)",
-              backgroundColor: "rgba(50, 115, 220, 0.2)",
+              borderColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+              ],
+              backgroundColor: [
+                "rgba(255,99,132,1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+              ],
               pointBorderColor: "#2554FF",
               data: response.data.data.map((item) => item.total),
             },
