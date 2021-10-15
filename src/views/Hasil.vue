@@ -11,7 +11,7 @@
               <div class="flex flex-wrap items-center">
                 <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                   <h3 class="font-semibold text-base text-blueGray-700">
-                    Data Polling
+                    Data Polling - {{ count }}
                   </h3>
                 </div>
                 <div
@@ -60,6 +60,7 @@
                     </th>
                   </tr>
                 </thead>
+
                 <tbody>
                   <tr v-for="(item, index) in dataPolling" :key="index">
                     <td
@@ -91,6 +92,13 @@
                   </tr>
                 </tbody>
               </table>
+              <div v-show="loading" class="animate-pulse w-full p-4">
+                <div class="h-8 w-full bg-gray-200 mt-3 mb-6 rounded"></div>
+                <div class="h-8 w-full bg-gray-300 mb-6 rounded"></div>
+                <div class="h-8 w-full bg-gray-200 mb-6 rounded"></div>
+                <div class="h-8 w-full bg-gray-300 mb-6 rounded"></div>
+                <div class="h-8 w-full bg-gray-200 mb-6 rounded"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -111,6 +119,8 @@ export default {
   data() {
     return {
       dataPolling: [],
+      count: 0,
+      loading: false,
     };
   },
   created() {
@@ -118,11 +128,18 @@ export default {
   },
   methods: {
     async getDataList() {
-      const response = await axios.get(
-        `${api_url}/api/v1/polling/get-data-polling`
-      );
-      this.dataPolling = response.data.data;
-      console.log(response);
+      this.loading = true;
+      try {
+        const response = await axios.get(
+          `${api_url}/api/v1/polling/get-data-polling`
+        );
+        this.dataPolling = response.data.data;
+        this.count = response.data.data.length;
+        this.loading = false;
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
     },
     async handleBackup() {
       try {

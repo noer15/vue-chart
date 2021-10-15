@@ -3,6 +3,9 @@
     <Navbar />
     <div class="lg:max-w-6xl mx-auto lg:mt-20 mt-10">
       <div class="my-4 text-gray-700 font-semibold text-xl">Grafik Polling</div>
+      <div v-show="loading" class="animate-pulse w-full">
+        <div class="h-44 bg-gray-200"></div>
+      </div>
       <bar-chart
         v-if="loaded"
         :chartData="polling_statistic"
@@ -27,6 +30,7 @@ export default {
     return {
       order_statistics: null,
       loaded: false,
+      loading: false,
       candidate: [],
       polling_statistic: null,
       start_date: "",
@@ -66,6 +70,7 @@ export default {
   methods: {
     async totalAdminTransactions() {
       this.loaded = false;
+      this.loading = true;
       let now = new Date();
       let firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
       let lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
@@ -105,6 +110,7 @@ export default {
           ],
         };
         this.loaded = true;
+        this.loading = false;
       } catch (error) {
         console.log(error);
       }
